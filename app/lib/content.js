@@ -282,7 +282,6 @@ export const trackRecords = [
 export const ssp = {
   investments: {
     functions: ["Sourcing", "Underwriting", "Financing", "Closing", "Asset Mgmt."],
-    logoImage: "ssp_iconiq_divcore.png",
     partners: [
       { name: "ICONIQ", aum: "$80+ billion assets under management" },
       { name: "DivCore", aum: "$40+ billion assets under management" },
@@ -336,6 +335,6 @@ export const sections = {
   codev: { num: "10", title: "Co-Development Expertise", tag: "Engaged early. Shaping projects before the first resident moves in." },
   trackRecord: { num: "11", title: "Operating Track Record", tag: "The model, proven in operation. Takeovers, lease-ups and full-service assets." },
   ssp: { num: "12", title: "Sentral Strategic Partners", tag: "Full alignment of capital, ownership and operations." },
-  criteria: { num: "13", title: "Investment Criteria + Market Coverage", tag: "Where we invest, and on what terms." },
+  criteria: { num: "13", title: "Investment Criteria", tag: "Where we invest, and on what terms." },
   portfolio: { num: "14", title: "A Look Across the Portfolio", tag: "Coast to coast, one operating standard." },
 };

@@ -7,7 +7,6 @@ import Divider from "./components/Divider";
 import {
   networkStats,
   networkMapImage,
-  coverageMapImage,
   investorLogoWall,
   leadership,
   leadershipStats,
@@ -19,8 +18,6 @@ import {
   trackRecords,
   ssp,
   investmentCriteria,
-  existingMarkets,
-  targetMarkets,
   galleryProperties,
   sections,
 } from "./lib/content";
@@ -348,59 +345,65 @@ export default function Home() {
           <span className="rule" />
           <h2 className="s-title">Sentral Strategic Partners (&ldquo;SSP&rdquo;)</h2>
 
-          <div className="dcard-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
-            <div className="dcard">
-              <div className="dbody">
-                <div className="dh">
-                  <h4>Investments</h4>
-                </div>
-                <div className="lw-row" style={{ marginBottom: 20 }}>
-                  {ssp.investments.functions.map((f) => (
-                    <span key={f} className="mkt-chip" style={{ fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", fontSize: 11 }}>
-                      {f}
-                    </span>
-                  ))}
-                </div>
-                <div style={{ maxWidth: 320 }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={`/images/${ssp.investments.logoImage}`} alt="ICONIQ and DivCore" style={{ width: "100%", display: "block", filter: "grayscale(1)", opacity: 0.85 }} />
-                </div>
-                <div style={{ display: "flex", gap: 32, marginTop: 18 }}>
-                  {ssp.investments.partners.map((p) => (
-                    <div key={p.name}>
-                      <div style={{ fontSize: 11, color: "var(--tx-muted)" }}>{p.aum}</div>
+          <div className="ssp-wrap">
+            <div className="dcard-grid" style={{ gridTemplateColumns: "1fr 1fr" }}>
+              <div className="dcard">
+                <div className="dbody">
+                  <p className="ssp-tag">Capital Partners</p>
+                  <div className="dh">
+                    <h4>Investments</h4>
+                  </div>
+                  <div className="ssp-fns">
+                    {ssp.investments.functions.map((f) => (
+                      <span key={f} className="ssp-fn">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="ssp-div">
+                    <div className="ssp-brand">
+                      {ssp.investments.partners.map((p) => (
+                        <div className="ssp-brand-item" key={p.name}>
+                          <div className="ssp-word">{p.name}</div>
+                          <div className="ssp-stat">{p.aum}</div>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
+                </div>
+              </div>
+              <div className="dcard">
+                <div className="dbody">
+                  <p className="ssp-tag">Operating Partner</p>
+                  <div className="dh">
+                    <h4>Operations</h4>
+                  </div>
+                  <div className="ssp-fns">
+                    {ssp.operations.functions.map((f) => (
+                      <span key={f} className="ssp-fn">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="ssp-div">
+                    <div className="ssp-word solo">SEN+RAL</div>
+                    <p className="ssp-body">{ssp.operations.body}</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="dcard">
-              <div className="dbody">
-                <div className="dh">
-                  <h4>Operations</h4>
-                </div>
-                <div className="lw-row" style={{ marginBottom: 20 }}>
-                  {ssp.operations.functions.map((f) => (
-                    <span key={f} className="mkt-chip" style={{ fontWeight: 700, letterSpacing: ".06em", textTransform: "uppercase", fontSize: 11 }}>
-                      {f}
-                    </span>
-                  ))}
-                </div>
-                <div style={{ fontFamily: "var(--f-display)", fontSize: 22, color: "var(--tx)", marginBottom: 12 }}>SEN+RAL</div>
-                <p style={{ fontSize: 12.5, lineHeight: 1.65, color: "var(--tx-body)" }}>{ssp.operations.body}</p>
-              </div>
-            </div>
+            <div className="ssp-connector">+</div>
           </div>
         </div>
       </section>
 
-      {/* ---- INVESTMENT CRITERIA + MARKET COVERAGE ---- */}
+      {/* ---- INVESTMENT CRITERIA ---- */}
       <Divider section={sections.criteria} />
       <section className="surf-cream2">
         <div className="sec reveal">
           <p className="eyebrow">Where We Invest</p>
           <span className="rule" />
-          <h2 className="s-title">Investment Criteria + Market Coverage</h2>
+          <h2 className="s-title">Investment Criteria</h2>
 
           <table className="crit-table" style={{ marginTop: 24 }}>
             <tbody>
@@ -418,14 +421,6 @@ export default function Home() {
               ))}
             </tbody>
           </table>
-
-          <div className="map-img reveal" style={{ marginTop: 40 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={`/images/${coverageMapImage}`} alt="Sentral existing and target market coverage map" />
-          </div>
-          <p className="noi-footnote" style={{ marginTop: 12 }}>
-            Existing markets: {existingMarkets.join(", ")}. New / target markets: {targetMarkets.join(", ")}.
-          </p>
         </div>
       </section>
 
@@ -458,12 +453,29 @@ export default function Home() {
             <div className="contact">
               <div className="cn">Roman Speron</div>
               <div className="cr">Chief Executive Officer</div>
-              <div className="cc">Sentral Management</div>
+              <div className="cc">
+                roman@sentral.com
+                <br />
+                415·854·0159
+              </div>
             </div>
             <div className="contact">
-              <div className="cn">Nitesh Gandhi</div>
-              <div className="cr">Chief Commercial Officer</div>
-              <div className="cc">Sentral Management</div>
+              <div className="cn">Elliot Albert</div>
+              <div className="cr">Vice President, Real Estate</div>
+              <div className="cc">
+                ealbert@sentral.com
+                <br />
+                610·291·1211
+              </div>
+            </div>
+            <div className="contact">
+              <div className="cn">Desmond Ellis</div>
+              <div className="cr">Director, Real Estate</div>
+              <div className="cc">
+                dellis@sentral.com
+                <br />
+                610.299.2026
+              </div>
             </div>
           </div>
           <div className="close-foot">Sentral · Q3 2026</div>

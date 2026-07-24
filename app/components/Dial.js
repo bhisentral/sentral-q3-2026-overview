@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const CX = 300, CY = 300, R = 200, R_IN = 184;
+// The needle itself is drawn shorter than the arc radius so its tip/handle
+// never reaches down into the gauge-center readout text for the two middle
+// stops (their tip would otherwise cross right through "NOI Lift" / the
+// number). The full-length arc still shows true progress around the dial.
+const NEEDLE_R = 100;
 const STOP_ANGLES = [180, 120, 60, 0]; // degrees, left -> right over the top
 
 function pt(angleDeg, r) {
@@ -34,14 +39,15 @@ export default function Dial({ stages }) {
   const stage = stages[active];
 
   const needleAngle = STOP_ANGLES[active];
-  const needleTip = pt(needleAngle, R);
+  const arcTip = pt(needleAngle, R);
+  const needleTip = pt(needleAngle, NEEDLE_R);
   const arcStart = pt(180, R);
 
   const largeArc = 0;
   const progressPath =
     active === 0
       ? `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 0 0 ${arcStart.x} ${arcStart.y}`
-      : `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 ${largeArc} 1 ${needleTip.x} ${needleTip.y}`;
+      : `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 ${largeArc} 1 ${arcTip.x} ${arcTip.y}`;
 
   function handlePointerDown(e) {
     const svg = svgRef.current;

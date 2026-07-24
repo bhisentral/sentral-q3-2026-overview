@@ -7,7 +7,7 @@ const CX = 300, CY = 300, R = 200, R_IN = 184;
 // never reaches down into the gauge-center readout text for the two middle
 // stops (their tip would otherwise cross right through "NOI Lift" / the
 // number). The full-length arc still shows true progress around the dial.
-const NEEDLE_R = 100;
+const NEEDLE_R = 128;
 const STOP_ANGLES = [180, 120, 60, 0]; // degrees, left -> right over the top
 
 function pt(angleDeg, r) {

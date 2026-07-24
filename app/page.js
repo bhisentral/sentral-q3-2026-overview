@@ -33,7 +33,7 @@ export default function Home() {
 
       {/* ---- HERO ---- */}
       <section id="hero">
-        <div className="hero-bg" style={{ backgroundImage: "url(/images/hero_towers.png)" }} />
+        <div className="hero-bg" style={{ backgroundImage: "url(/images/hero_towers.jpg)" }} />
         <div className="hero-ov" />
         <div className="hero-content">
           <p className="hero-eyebrow">Sentral · Company Overview · Q3 2026</p>

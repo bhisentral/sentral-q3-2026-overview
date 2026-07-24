@@ -161,7 +161,7 @@ export const operationalCaseStudies = [
   {
     name: "Star Harbor", badge: "Best-In-Class Multifamily Management Takeovers",
     meta: "372 units · San Francisco", owner: "Strada Investment Group / Arizona SRS",
-    photo: "cs_star_harbor.png",
+    photo: "cs_star_harbor.jpg",
     points: [
       "Takeover from Greystar; 5–8% rent premiums with dynamic pricing and 7-day-a-week office hours",
       "Hospitality-trained staff to deliver customer-first environment",
@@ -183,7 +183,7 @@ export const operationalCaseStudies = [
   {
     name: "Sentral Michigan Ave", badge: "Market-Leading Flexible Living Operations",
     meta: "479 units (117 furnished / 24%) · Chicago", owner: "ICONIQ Capital",
-    photo: "cs_michigan_ave.png",
+    photo: "cs_michigan_ave.jpg",
     points: [
       "40–150% rent premiums through flexible-length furnished units",
       "Cross-trained staff to support residents and guests",
@@ -197,7 +197,7 @@ export const codevCaseStudies = [
   {
     name: "Sentral Brickell", badge: "Capital Partnership + Development Services + Management",
     meta: "537 units (100 furnished / 19%) + 266 condos · Miami, FL", owner: "PMG / ICONIQ Capital",
-    photo: "cs_brickell.png",
+    photo: "cs_brickell.jpg",
     points: [
       "ICONIQ and PMG acquired the 1.16-acre site in 2022, completed entitlement work, capitalized the project and commenced construction in May 2025",
       "Sentral's operating model increases NOI by 15% and un-trended YOC by +80 bps over a conventional multifamily business plan",
@@ -206,7 +206,7 @@ export const codevCaseStudies = [
   {
     name: "NORA", badge: "Capital Partnership + Development Services + Management",
     meta: "350 units (40 furnished / 11%) · West Palm Beach, FL", owner: "Wheelock Street Capital / NDT / Sentral / Others",
-    photo: "cs_nora.png",
+    photo: "cs_nora.jpg",
     points: [
       "Sentral engaged two years prior to construction to shape design, unit mix, amenities and operations",
       "Sentral positioned NORA to capture the increasing unmet demand for best-in-class rental product in WPB",
@@ -216,7 +216,7 @@ export const codevCaseStudies = [
   {
     name: "Century Park East", badge: "Development Services + Management",
     meta: "234 units (30 furnished / 13%) · Century City, Los Angeles, CA", owner: "JMB Realty",
-    photo: "cs_century_park.png",
+    photo: "cs_century_park.jpg",
     points: [
       "JMB engaged Sentral during pre-development to guide the project's design, unit mix, and operations",
       "Driven by Sentral's experience managing best-in-class, highest-rent properties in the submarket",
@@ -317,9 +317,9 @@ export const galleryProperties = [
   { name: "Sol Modern", photo: "gal_sol_modern_clean.jpg" },
   { name: "Figueroa Eight", photo: "gal_figueroa_clean.jpeg" },
   { name: "The Battery", photo: "gal_battery_clean.jpg" },
-  { name: "NORA", photo: "gal_nora.png" },
-  { name: "Sentral West Midtown", photo: "gal_west_midtown.png" },
-  { name: "Sentral Union Station", photo: "gal_union_station.png" },
+  { name: "NORA", photo: "gal_nora.jpg" },
+  { name: "Sentral West Midtown", photo: "gal_west_midtown.jpg" },
+  { name: "Sentral Union Station", photo: "gal_union_station.jpg" },
 ];
 
 // Numbered eyebrow + italic-accent tagline for each divider band / section

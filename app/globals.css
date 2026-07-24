@@ -310,7 +310,7 @@ nav:not(.scrolled) .nav-links a:hover{color:#fff}
 /* ============ Q3 2026 OVERVIEW — additions ============ */
 
 /* ---- badge / category label (matches deck's dark banner) ---- */
-.badge{display:inline-block;background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:14px 18px;text-align:center;width:100%}
+.badge{display:flex;align-items:center;justify-content:center;min-height:64px;background:var(--ink);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;line-height:1.4;padding:14px 18px;text-align:center;width:100%;box-sizing:border-box}
 
 /* ---- logo wall (text wordmark strips, no logo assets) ---- */
 .logowall-group{margin-top:34px}

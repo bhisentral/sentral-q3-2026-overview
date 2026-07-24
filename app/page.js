@@ -235,7 +235,7 @@ export default function Home() {
       <div className="split2">
         <div className="si">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/events_signage.png" alt="Sentral weekly events programming" />
+          <img src="/images/quincy_rooftop_fitness.jpg" alt="Rooftop fitness class at Quincy" />
         </div>
         <div className="sc">
           <p className="eyebrow">Services That Drive Revenue</p>

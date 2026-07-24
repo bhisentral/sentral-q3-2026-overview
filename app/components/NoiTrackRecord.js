@@ -17,16 +17,16 @@ export default function NoiTrackRecord({ record }) {
 
   return (
     <div className="reveal">
-      <p className="eyebrow">Sentral Value Creation</p>
-      <span className="rule" />
-      <h3 className="s-title">{title}</h3>
+      <p className="eyebrow" style={{ marginBottom: 10 }}>Sentral Value Creation</p>
+      <span className="rule" style={{ marginBottom: 12 }} />
+      <h3 className="s-title" style={{ marginBottom: 6 }}>{title}</h3>
       <p className="s-body">{subtitle}</p>
 
-      <div className="noi-wrap">
+      <div className="noi-wrap" style={{ marginTop: 22 }}>
         <div className="noi-chart">
           <div className="noi-uplift">{uplift} Uplift</div>
           <div style={{ display: "flex", gap: 16 }}>
-            <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: 280, fontSize: 9, color: "var(--tx-muted)", paddingBottom: 1 }}>
+            <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: 190, fontSize: 9, color: "var(--tx-muted)", paddingBottom: 1 }}>
               {axisLabels.map((l) => (
                 <span key={l}>{l}</span>
               ))}

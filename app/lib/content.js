@@ -289,7 +289,6 @@ export const ssp = {
   },
   operations: {
     functions: ["Leadership", "Operations", "Accounting / Finance", "Technology", "Client Service"],
-    body: "Sentral is the leading Class-A multifamily property management company, driving significant revenue gains through differentiated operating capabilities, technology, and a hospitality-inspired resident experience. The company manages more than $7 billion in multifamily assets for a growing roster of institutional owners across the United States. Sentral has been recognized by J Turner Research's Elite ORA® Top 25, Multifamily Executive, and Skift IDEA Awards for innovation in property management and proptech.",
   },
 };
 

@@ -330,7 +330,7 @@ export default function Home() {
       {/* ---- TRACK RECORD ---- */}
       <Divider section={sections.trackRecord} />
       <section id="track-record" className="surf-cream2">
-        <div className="sec" style={{ display: "flex", flexDirection: "column", gap: 88 }}>
+        <div className="sec" style={{ display: "flex", flexDirection: "column", gap: 44 }}>
           {trackRecords.map((r) => (
             <NoiTrackRecord record={r} key={r.id} />
           ))}
@@ -387,7 +387,6 @@ export default function Home() {
                   </div>
                   <div className="ssp-div">
                     <div className="ssp-word solo">SEN+RAL</div>
-                    <p className="ssp-body">{ssp.operations.body}</p>
                   </div>
                 </div>
               </div>
@@ -407,18 +406,14 @@ export default function Home() {
 
           <table className="crit-table" style={{ marginTop: 24 }}>
             <tbody>
-              {investmentCriteria.map((c) => (
-                <tr key={c.k}>
-                  <th>{c.k}</th>
-                  <td>
-                    <ul>
-                      {c.v.map((line) => (
-                        <li key={line}>{line}</li>
-                      ))}
-                    </ul>
-                  </td>
-                </tr>
-              ))}
+              {investmentCriteria.flatMap((c) =>
+                c.v.map((line, i) => (
+                  <tr key={`${c.k}-${line}`}>
+                    {i === 0 && <th rowSpan={c.v.length}>{c.k}</th>}
+                    <td>{line}</td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>

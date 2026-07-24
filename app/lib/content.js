@@ -18,9 +18,10 @@ export const markets = [
   "Miami (3)",
 ];
 
-// Map graphics cropped directly from the deck's own rendered slides
-// (national network map, p.2; investment/market-coverage map, p.18).
-export const networkMapImage = "map_network.png";
+// Network map reuses the high-fidelity asset from the sibling
+// sentral-development site (same underlying market data, cleaner render).
+// Coverage map is cropped from this deck's own investment-criteria slide.
+export const networkMapImage = "map_network.jpg";
 export const coverageMapImage = "map_coverage.png";
 
 export const partners = {
@@ -39,21 +40,20 @@ export const partners = {
   ],
 };
 
-// Single wide crop of the deck's full investor/client/lender logo wall —
-// same technique used by the sibling sentral-development site (see its
-// dev-03.jpg) rather than sourcing individual per-company logo files.
-export const investorLogoWall = "investor_logowall.png";
+// Reuses the sibling sentral-development site's investor/client/lender
+// logo-wall asset — same companies, cleaner render on the shared cream bg.
+export const investorLogoWall = "investor_logowall.jpg";
 
 export const leadership = [
-  { name: "Roman Speron", title: "Chief Executive Officer", years: "21 yrs experience", prior: "Crescent Heights", photo: "headshot_roman.png", logo: "lg_roman.png" },
-  { name: "Billie Hazley", title: "Chief Operating Officer", years: "22 yrs experience", prior: "Mitsui Fudosan America · Alliance Residential", photo: "headshot_billie.png", logo: "lg_billie.png" },
-  { name: "Wendy Wood", title: "Chief Administrative Officer", years: "24 yrs experience", prior: "Amazon · Gables", photo: "headshot_wendy.png", logo: "lg_wendy.png" },
-  { name: "Nitesh Gandhi", title: "Chief Commercial Officer", years: "16 yrs experience", prior: "Locale", photo: "headshot_nitesh.png", logo: "lg_nitesh.png" },
-  { name: "Farrah Pinnock", title: "SVP, Accounting + Finance", years: "12 yrs experience", prior: "AR Global", photo: "headshot_farrah.png", logo: "lg_farrah.png" },
-  { name: "Elliot Albert", title: "VP, Real Estate", years: "12 yrs experience", prior: "Lubert Adler Real Estate Funds", photo: "headshot_elliot.png", logo: "lg_elliot.png" },
-  { name: "Jenelle Shapiro", title: "VP, Marketing", years: "16 yrs experience", prior: "Sares Regis Group · Pacifica Host Hotels", photo: "headshot_jenelle.png", logo: "lg_jenelle.png" },
-  { name: "Kelly Lombardi", title: "VP, Development", years: "15 yrs experience", prior: "Crescent Heights", photo: "headshot_kelly.png", logo: "lg_kelly.png" },
-  { name: "Nancy Godsk", title: "AVP, Revenue Management", years: "20 yrs experience", prior: "Essex · Hertz", photo: "headshot_nancy.png", logo: "lg_nancy.png" },
+  { name: "Roman Speron", title: "Chief Executive Officer", years: "21 yrs experience", prior: "Crescent Heights", photo: "headshot_roman.jpg", logo: "lg_roman.jpg" },
+  { name: "Billie Hazley", title: "Chief Operating Officer", years: "22 yrs experience", prior: "Mitsui Fudosan America · Alliance Residential", photo: "headshot_billie.jpg", logo: "lg_billie.jpg" },
+  { name: "Wendy Wood", title: "Chief Administrative Officer", years: "24 yrs experience", prior: "Amazon · Gables", photo: "headshot_wendy.jpg", logo: "lg_wendy.jpg" },
+  { name: "Nitesh Gandhi", title: "Chief Commercial Officer", years: "16 yrs experience", prior: "Locale", photo: "headshot_nitesh.jpg", logo: "lg_nitesh.jpg" },
+  { name: "Farrah Pinnock", title: "SVP, Accounting + Finance", years: "12 yrs experience", prior: "AR Global", photo: "headshot_farrah.jpg", logo: "lg_farrah.jpg" },
+  { name: "Elliot Albert", title: "VP, Real Estate", years: "12 yrs experience", prior: "Lubert Adler Real Estate Funds", photo: "headshot_elliot.jpg", logo: "lg_elliot.jpg" },
+  { name: "Jenelle Shapiro", title: "VP, Marketing", years: "16 yrs experience", prior: "Sares Regis Group · Pacifica Host Hotels", photo: "headshot_jenelle.jpg", logo: "lg_jenelle.jpg" },
+  { name: "Kelly Lombardi", title: "VP, Development", years: "15 yrs experience", prior: "Crescent Heights", photo: "headshot_kelly.jpg", logo: "lg_kelly.jpg" },
+  { name: "Nancy Godsk", title: "AVP, Revenue Management", years: "20 yrs experience", prior: "Essex · Hertz", photo: "headshot_nancy.jpg", logo: "lg_nancy.jpg" },
 ];
 
 export const leadershipStats = [

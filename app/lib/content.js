@@ -18,6 +18,11 @@ export const markets = [
   "Miami (3)",
 ];
 
+// Map graphics cropped directly from the deck's own rendered slides
+// (national network map, p.2; investment/market-coverage map, p.18).
+export const networkMapImage = "map_network.png";
+export const coverageMapImage = "map_coverage.png";
+
 export const partners = {
   investors: ["ICONIQ", "DivCore", "Ascendant", "Highgate"],
   clients: [
@@ -34,16 +39,21 @@ export const partners = {
   ],
 };
 
+// Single wide crop of the deck's full investor/client/lender logo wall —
+// same technique used by the sibling sentral-development site (see its
+// dev-03.jpg) rather than sourcing individual per-company logo files.
+export const investorLogoWall = "investor_logowall.png";
+
 export const leadership = [
-  { name: "Roman Speron", title: "CEO", years: "21 yrs", prior: "Crescent Heights", photo: "headshot_roman.png" },
-  { name: "Billie Hazley", title: "COO", years: "22 yrs", prior: "Mitsui Fudosan America · Alliance Residential", photo: "headshot_billie.png" },
-  { name: "Wendy Wood", title: "CAO (Administrative)", years: "24 yrs", prior: "Amazon · Gables", photo: "headshot_wendy.png" },
-  { name: "Nitesh Gandhi", title: "CCO (Commercial)", years: "16 yrs", prior: "Locale", photo: "headshot_nitesh.png" },
-  { name: "Farrah Pinnock", title: "SVP, Accounting + Finance", years: "12 yrs", prior: "AR Global", photo: "headshot_farrah.png" },
-  { name: "Elliot Albert", title: "VP, Real Estate", years: "12 yrs", prior: "Lubert Adler Real Estate Funds", photo: "headshot_elliot.png" },
-  { name: "Jenelle Shapiro", title: "VP, Marketing", years: "16 yrs", prior: "Sares Regis Group · Pacifica Host Hotels", photo: "headshot_jenelle.png" },
-  { name: "Kelly Lombardi", title: "VP, Development", years: "15 yrs", prior: "Crescent Heights", photo: "headshot_kelly.png" },
-  { name: "Nancy Godsk", title: "AVP, Revenue Management", years: "20 yrs", prior: "Essex · Hertz", photo: "headshot_nancy.png" },
+  { name: "Roman Speron", title: "Chief Executive Officer", years: "21 yrs experience", prior: "Crescent Heights", photo: "headshot_roman.png", logo: "lg_roman.png" },
+  { name: "Billie Hazley", title: "Chief Operating Officer", years: "22 yrs experience", prior: "Mitsui Fudosan America · Alliance Residential", photo: "headshot_billie.png", logo: "lg_billie.png" },
+  { name: "Wendy Wood", title: "Chief Administrative Officer", years: "24 yrs experience", prior: "Amazon · Gables", photo: "headshot_wendy.png", logo: "lg_wendy.png" },
+  { name: "Nitesh Gandhi", title: "Chief Commercial Officer", years: "16 yrs experience", prior: "Locale", photo: "headshot_nitesh.png", logo: "lg_nitesh.png" },
+  { name: "Farrah Pinnock", title: "SVP, Accounting + Finance", years: "12 yrs experience", prior: "AR Global", photo: "headshot_farrah.png", logo: "lg_farrah.png" },
+  { name: "Elliot Albert", title: "VP, Real Estate", years: "12 yrs experience", prior: "Lubert Adler Real Estate Funds", photo: "headshot_elliot.png", logo: "lg_elliot.png" },
+  { name: "Jenelle Shapiro", title: "VP, Marketing", years: "16 yrs experience", prior: "Sares Regis Group · Pacifica Host Hotels", photo: "headshot_jenelle.png", logo: "lg_jenelle.png" },
+  { name: "Kelly Lombardi", title: "VP, Development", years: "15 yrs experience", prior: "Crescent Heights", photo: "headshot_kelly.png", logo: "lg_kelly.png" },
+  { name: "Nancy Godsk", title: "AVP, Revenue Management", years: "20 yrs experience", prior: "Essex · Hertz", photo: "headshot_nancy.png", logo: "lg_nancy.png" },
 ];
 
 export const leadershipStats = [
@@ -51,23 +61,36 @@ export const leadershipStats = [
   { num: "21 yrs", label: "Team member's average years of industry experience" },
 ];
 
-export const valueTiers = [
+// Unified 4-stage model powering the interactive dial: NOI Lift steps
+// (0 / 5% / 15% / 27%) and Unlevered Yield steps (5.0 / 5.5 / 5.8 / 6.8%)
+// both come from the deck's Value Creation Model (p.5) and Illustrative
+// Unlevered Yields & Premiums (p.10) — merged into one dataset, one dial.
+export const dialStages = [
   {
+    key: "traditional",
+    tierLabel: "Traditional",
     name: "Outdated Traditional Management",
-    muted: true,
-    lift: null,
-    points: [
-      "Unchanged for decades",
-      "Limited corporate leadership support and involvement",
+    dim: true,
+    desc: "A model unchanged for decades. Limited corporate leadership support and involvement, most functions outsourced, competing on lowest cost — average returns.",
+    rentPremium: "—",
+    yield: 5.0,
+    noiLift: 0,
+    feats: [
+      "Unchanged model for decades",
+      "Limited corporate leadership support",
       "Most functions outsourced",
       "Competing on lowest cost",
-      "Average returns",
     ],
   },
   {
+    key: "base",
+    tierLabel: "Sentral Base",
     name: "Sentral Base Management",
-    lift: "5%",
-    points: [
+    desc: "Whole-building, full-cycle property and asset management with a dynamic lease-up pricing model and an integrated resident app.",
+    rentPremium: "20%",
+    yield: 5.5,
+    noiLift: 5,
+    feats: [
       "Base of 20% rent premiums vs. competitors",
       "Whole building, full-cycle property and asset management",
       "Dynamic lease-up pricing model",
@@ -76,9 +99,14 @@ export const valueTiers = [
     ],
   },
   {
+    key: "fullservice",
+    tierLabel: "Full-Service",
     name: "Full Service Residential",
-    lift: "15%",
-    points: [
+    desc: "Unique staffing model and talent, advanced events and activations, health & wellness programming, private membership clubs, and F&B partnerships.",
+    rentPremium: "39%",
+    yield: 5.8,
+    noiLift: 15,
+    feats: [
       "39% rent premiums vs. competitors (+19% to traditional)",
       "Unique staffing model and talent",
       "Advanced events + activations",
@@ -88,9 +116,14 @@ export const valueTiers = [
     ],
   },
   {
+    key: "flex",
+    tierLabel: "Flex & Furnished",
     name: "Flexible & Furnished Residential",
-    lift: "27%",
-    points: [
+    desc: "A dynamic, in-house revenue management, sales and marketing engine drives net revenue premiums well beyond traditional multifamily.",
+    rentPremium: "30–150%",
+    yield: 6.8,
+    noiLift: 27,
+    feats: [
       "30%–150% net revenue premiums vs. traditional multifamily",
       "300+ corporate accounts",
       "Generated $41M of furnished unit revenue in 2025",
@@ -123,13 +156,6 @@ export const flexNetwork = {
     { num: "$27M", label: "Direct booking revenue, 2025" },
   ],
 };
-
-export const yieldWaterfall = [
-  { name: "Existing Multifamily Operations", value: 5.0, delta: null, desc: "Baseline unlevered yield under conventional third-party management." },
-  { name: "Best-in-Class Multifamily Management", value: 5.5, delta: "+0.5%", desc: "33% rent premiums, 10% other revenue lift." },
-  { name: "Innovative Hospitality Services", value: 5.8, delta: "+0.3%", desc: "Health & wellness, private clubs, curated events, F&B." },
-  { name: "Market-Leading Flex Living Operations", value: 6.8, delta: "+1.0%", desc: "30–150% RevPAR lift with mid/short-term stays; 300+ corporate accounts." },
-];
 
 export const operationalCaseStudies = [
   {
@@ -256,6 +282,7 @@ export const trackRecords = [
 export const ssp = {
   investments: {
     functions: ["Sourcing", "Underwriting", "Financing", "Closing", "Asset Mgmt."],
+    logoImage: "ssp_iconiq_divcore.png",
     partners: [
       { name: "ICONIQ", aum: "$80+ billion assets under management" },
       { name: "DivCore", aum: "$40+ billion assets under management" },
@@ -294,3 +321,21 @@ export const galleryProperties = [
   { name: "Sentral West Midtown", photo: "gal_west_midtown.png" },
   { name: "Sentral Union Station", photo: "gal_union_station.png" },
 ];
+
+// Numbered eyebrow + italic-accent tagline for each divider band / section
+// head, matching the sibling site's "NN · Section Title" convention.
+export const sections = {
+  network: { num: "02", title: "The Network", tag: "Established & expanding. Proven across the country." },
+  partners: { num: "03", title: "The Company We Keep", tag: "Bluechip investors, clients and lenders. They trust Sentral with their assets." },
+  leadership: { num: "04", title: "Our Leadership Team", tag: "Owners' mindset. Decades of multifamily and hospitality expertise." },
+  valueModel: { num: "05", title: "The Sentral Value Creation Model", tag: "Owners choose the model. Sentral dials up the NOI." },
+  residentExperience: { num: "06", title: "The Resident Experience", tag: "Engaging daily programming and events. Curated, and measured." },
+  hospitality: { num: "07", title: "Full-Service Residential Hospitality", tag: "Four revenue-generating pillars. Hospitality that pays." },
+  flexNetwork: { num: "08", title: "Flexible & Furnished Residential Network", tag: "A second revenue engine. Untapped revenue under the same roof." },
+  operational: { num: "09", title: "Operational Expertise", tag: "The model, applied. Value-add upside in core multifamily assets." },
+  codev: { num: "10", title: "Co-Development Expertise", tag: "Engaged early. Shaping projects before the first resident moves in." },
+  trackRecord: { num: "11", title: "Operating Track Record", tag: "The model, proven in operation. Takeovers, lease-ups and full-service assets." },
+  ssp: { num: "12", title: "Sentral Strategic Partners", tag: "Full alignment of capital, ownership and operations." },
+  criteria: { num: "13", title: "Investment Criteria + Market Coverage", tag: "Where we invest, and on what terms." },
+  portfolio: { num: "14", title: "A Look Across the Portfolio", tag: "Coast to coast, one operating standard." },
+};

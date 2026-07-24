@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 const LINKS = [
   { href: "#network", label: "Network" },
-  { href: "#leadership", label: "Leadership" },
-  { href: "#value-model", label: "Value Model" },
-  { href: "#track-record", label: "Track Record" },
   { href: "#partners", label: "Partners" },
+  { href: "#leadership", label: "Leadership" },
+  { href: "#dial", label: "Value Creation" },
+  { href: "#track-record", label: "Track Record" },
   { href: "#contact", label: "Contact" },
 ];
 

@@ -197,7 +197,7 @@ export default function Home() {
           <div className="app-wrap">
             <div className="app-img">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/images/phone_mockup.png" alt="Sentral Life resident app" />
+              <img src="/images/phone_mockup_full.png" alt="Sentral Life resident app" />
             </div>
             <div>
               <p className="eyebrow">Sentral Life</p>

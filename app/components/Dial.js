@@ -1,14 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 const CX = 300, CY = 300, R = 200, R_IN = 184;
-// The needle itself is drawn shorter than the arc radius so its tip/handle
-// never reaches down into the gauge-center readout text for the two middle
-// stops (their tip would otherwise cross right through "NOI Lift" / the
-// number). The full-length arc still shows true progress around the dial.
-const NEEDLE_R = 128;
 const STOP_ANGLES = [180, 120, 60, 0]; // degrees, left -> right over the top
+// Cropped tightly to the semicircle + pivot so no dead space remains once
+// the readout text lives below the SVG instead of floating inside it.
+const VIEWBOX = "0 82 600 246";
 
 function pt(angleDeg, r) {
   const rad = (angleDeg * Math.PI) / 180;
@@ -38,16 +36,17 @@ export default function Dial({ stages }) {
   const svgRef = useRef(null);
   const stage = stages[active];
 
+  // The needle and its handle always terminate exactly on the arc (radius
+  // R) — same point as the progress arc's endpoint — so the handle reads
+  // as "the moving tip of the arc," not a marker floating inside the dial.
   const needleAngle = STOP_ANGLES[active];
-  const arcTip = pt(needleAngle, R);
-  const needleTip = pt(needleAngle, NEEDLE_R);
+  const tip = pt(needleAngle, R);
   const arcStart = pt(180, R);
 
-  const largeArc = 0;
   const progressPath =
     active === 0
       ? `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 0 0 ${arcStart.x} ${arcStart.y}`
-      : `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 ${largeArc} 1 ${arcTip.x} ${arcTip.y}`;
+      : `M ${arcStart.x} ${arcStart.y} A ${R} ${R} 0 0 1 ${tip.x} ${tip.y}`;
 
   function handlePointerDown(e) {
     const svg = svgRef.current;
@@ -78,10 +77,12 @@ export default function Dial({ stages }) {
   return (
     <div className="dial-grid">
       <div className="gauge-box">
+        {/* Layer 1: arc + ticks + needle + handle. All geometry, no text —
+            so nothing here can ever sit under the readout below it. */}
         <svg
           ref={svgRef}
           className={`gauge-svg${dragging ? " drag" : ""}`}
-          viewBox="0 0 600 380"
+          viewBox={VIEWBOX}
           aria-label="NOI value creation dial"
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -120,12 +121,17 @@ export default function Dial({ stages }) {
             })}
           </g>
           <g>
-            <line x1={CX} y1={CY} x2={needleTip.x} y2={needleTip.y} stroke="#fff" strokeWidth="4" strokeLinecap="round" />
+            <line x1={CX} y1={CY} x2={tip.x} y2={tip.y} stroke="#fff" strokeWidth="4" strokeLinecap="round" />
             <circle cx={CX} cy={CY} r="14" fill="#5C8CA0" stroke="#282828" strokeWidth="3" />
-            <circle cx={needleTip.x} cy={needleTip.y} r="9" fill="#fff" stroke="#5C8CA0" strokeWidth="3" />
+            {/* Draggable handle — sits ON the arc at the tip of the active segment. */}
+            <circle cx={tip.x} cy={tip.y} r="11" fill="#fff" stroke="#5C8CA0" strokeWidth="3" />
           </g>
         </svg>
-        <div className="gauge-center">
+
+        {/* Layer 2: the readout. A normal block below the gauge — never
+            absolutely positioned over the arc, so it can't overlap the
+            needle at any angle. */}
+        <div className="dial-callout">
           <div className="gc-tag">NOI Lift</div>
           <div className="gc-num">
             <span>{active > 0 ? "+" : ""}</span>
@@ -134,6 +140,7 @@ export default function Dial({ stages }) {
           </div>
           <div className="gc-lbl">vs. traditional multifamily</div>
         </div>
+
         <div className="tier-btns">
           {stages.map((s, i) => (
             <button
@@ -146,7 +153,7 @@ export default function Dial({ stages }) {
             </button>
           ))}
         </div>
-        <div className="dial-hint">Drag the needle or tap a tier</div>
+        <div className="dial-hint">Drag the handle along the arc, or tap a tier</div>
       </div>
 
       <div className="readout">

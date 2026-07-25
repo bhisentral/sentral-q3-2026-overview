@@ -128,11 +128,14 @@ nav:not(.scrolled) .nav-links a:hover{color:#fff}
 .gauge-box{position:relative;user-select:none}
 .gauge-svg{width:100%;height:auto;display:block;cursor:grab;touch-action:none}
 .gauge-svg.drag{cursor:grabbing}
-.gauge-center{position:absolute;left:50%;top:54%;transform:translateX(-50%);text-align:center;width:100%;pointer-events:none}
+/* Readout callout — normal document flow directly below the gauge SVG,
+   never absolutely positioned over the arc, so it can't overlap the
+   needle/handle at any angle or stage. */
+.dial-callout{text-align:center;margin-top:14px}
 .gc-tag{font-size:10px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--oat);margin-bottom:2px}
-.gc-num{font-family:var(--f-display);font-weight:400;line-height:.9;color:#fff;font-size:74px}
-.gc-num .noival{font-size:74px}
-.gc-num .pct{color:var(--slate-light);font-size:34px}
+.gc-num{font-family:var(--f-display);font-weight:400;line-height:.9;color:#fff;font-size:60px}
+.gc-num .noival{font-size:60px}
+.gc-num .pct{color:var(--slate-light);font-size:28px}
 .gc-lbl{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-mut);margin-top:6px}
 .tier-btns{display:flex;justify-content:space-between;gap:6px;margin-top:14px}
 .tier-btn{flex:1;background:none;border:1px solid rgba(255,255,255,.22);color:var(--on-dark);font-family:var(--f-body);font-size:9.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:9px 4px;cursor:pointer;transition:.22s;line-height:1.25}
